@@ -1,6 +1,8 @@
 from lib.menu import menu
 from lib.clean import*
 
+#Variables globales
+docteurs = []
 def gestion_hopital():
     option = menu()
     if option == 0:

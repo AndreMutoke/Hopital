@@ -1,5 +1,12 @@
 from lib.clean import*
 def enregistrer_docteur():
+    cleanConsonle()
+    print("#####################################")
+    print("#####################################")
+    print("##      ENREGISTRER UN DOCTEUR     ##")
+    print("#####################################")
+    print("#####################################")
+    
     liste = []
     print("Entrez le prenom du docteur")
     prenom = input(">> ")
@@ -19,4 +26,5 @@ def enregistrer_docteur():
     print("Entrez la specialite du docteur")
     specialite = input(">> ")
     liste.append(specialite)
+    return liste
     
