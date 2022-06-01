@@ -26,5 +26,6 @@ def enregistrer_docteur():
     print("Entrez la specialite du docteur")
     specialite = input(">> ")
     liste.append(specialite)
+    pauseConsole()
     return liste
     

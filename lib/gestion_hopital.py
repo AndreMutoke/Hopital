@@ -8,7 +8,7 @@ def gestion_hopital():
     if option == 0:
         return
     elif option == 1:
-        print("Option 1")
+        docteurs.append(enregistrer_docteur())
     elif option == 2:
         print("Option 2")
     elif option == 3:
