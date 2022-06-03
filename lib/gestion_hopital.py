@@ -1,5 +1,6 @@
 from lib.menu import menu
 from lib.clean import*
+from lib.docteurs import *
 
 #Variables globales
 docteurs = []
@@ -9,6 +10,8 @@ def gestion_hopital():
         return
     elif option == 1:
         docteurs.append(enregistrer_docteur())
+        pauseConsole()
+        gestion_hopital()
     elif option == 2:
         print("Option 2")
     elif option == 3:
@@ -20,7 +23,9 @@ def gestion_hopital():
     elif option == 6:
         print("Option 6")
     elif option == 7:
-        print("Option 7")
+        afficher_docteur(docteurs)
+        pauseConsole()
+        gestion_hopital()
     elif option == 8:
         print("Option 8")
     elif option == 9:
