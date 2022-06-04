@@ -5,7 +5,7 @@ def enregistrer_docteur():
     print("##      ENREGISTRER UN DOCTEUR     ##")
     print("#####################################")
     
-    liste = []
+    liste = []    
     print("Entrez le prenom du docteur")
     prenom = input(">> ")
     prenom = prenom.upper()
