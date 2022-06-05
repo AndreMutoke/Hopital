@@ -109,10 +109,6 @@ def enregistrer_patients():
     numDossier =current_time.year  + current_time.second
     liste.append(numDossier)
     return liste
-
-    
-    
-
 def  afficher_patient(patients, act):
     cleanConsonle()
     print("#####################################")
