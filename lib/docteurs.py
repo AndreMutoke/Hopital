@@ -1,4 +1,20 @@
 from lib.clean import*
+jours = ["lundi",
+         "mardi",
+         "mercredi",
+         "jeudi",
+         "vendredi",
+         "samedi",
+         "dimanche"]
+heuresTravail = [ "08h - 09h",
+                  "09h - 10h",
+                  "10h - 11h",
+                  "11h - 12h",
+                  "12h - 13h",
+                  "13h - 14h",
+                  "14h - 15h",
+                  "15h - 16h",
+                  "16h - 17h"]
 def enregistrer_docteur():
     cleanConsonle()
     print("#####################################")
@@ -47,3 +63,32 @@ def afficher_docteur(docteurs):
             Specialite: {docteurs[i][5]}\n")
     else:
         print("Pas des docteurs enregistrer pour l'instant !!!\n")
+def enregistrer_horaire(docteur):
+    cleanConsonle()
+    horaire = []
+    print(f"Docteur : {docteur[0]} {docteur[1]} {docteur[2]}")
+    print("-------------------------------------------------")
+    for i in range(len(jours)) :
+        programmeHeure = []
+        for j in range(len(heuresTravail)) :
+            print(f"Entrez l'horaire du {jours[i]} de {heuresTravail[j]} :")
+            prog = input(">> ")
+            prog = prog.upper()
+            programmeHeure.append(prog)
+        horaire.append(programmeHeure)
+    docteur.append(horaire)
+def afficher_horaire(docteur):
+    if len(docteur) <= 6 :
+        print("Desole il n'ya pas d'horaire pour l'instant")
+    else :
+        print(f"Docteur : {docteur[0]} {docteur[1]} {docteur[2]}")
+        print("-------------------------------------------------") 
+        for i in range(len(jours)):
+            print(f"{jours[i]} :")
+            for j in range(len(heuresTravail)) :
+                print(f"\t{heuresTravail[j]} : {docteur[6][i][j]}")
+
+
+
+
+                           

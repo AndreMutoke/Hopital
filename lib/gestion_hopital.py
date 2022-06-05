@@ -56,9 +56,37 @@ def gestion_hopital():
         pauseConsole()
         gestion_hopital()
     elif option == 9:
-        print("Option 9")
+        cleanConsonle()
+        print("#######################################")
+        print("##        HORAIRE DES DOCTEURS       ##")
+        print("#######################################")
+        for i in range(len(docteurs)):
+            enregistrer_horaire(docteurs[i])
+        pauseConsole()
+        gestion_hopital()
     elif option == 10:
-        print("Option 10")
+        cleanConsonle()
+        print("#############################################")
+        print("##        DISPONIBILITE DES DOCTEURS       ##")
+        print("#############################################")
+        print("\n\
+                1. VOIRE HORAIRE DES DOCTEURS\n\
+                2. PROGRAMMER UN RENDEZ VOUS\n")
+        choix = int(input(">> "))
+        while choix != 1 and choix != 2 :
+            cleanConsonle()
+            print("#############################################")
+            print("##        DISPONIBILITE DES DOCTEURS       ##")
+            print("#############################################")
+            print("\n\
+                    1. VOIRE HORAIRE DES DOCTEURS\n\
+                    2. PROGRAMMER UN RENDEZ VOUS\n")
+            choix = int(input(">> "))
+        if choix == 1:
+            for i in range(len(docteurs)):
+                afficher_horaire(docteurs[i])
+        pauseConsole()
+        gestion_hopital()
     elif option == 11:
         ident = []
         print("Entrez le prenom du patient : ")
