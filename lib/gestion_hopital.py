@@ -21,11 +21,17 @@ def gestion_hopital():
     elif option == 3:
         print("Option 3")
     elif option == 4:
-        print("Option 4")
+        identifiant = choix_identifiants()
+        chercher_patient_identifiant(patients, identifiant)
+        pauseConsole()
+        gestion_hopital()
     elif option == 5:
-        print("Option 5")
+        identifiant = numero_chercher()
+        chercher_patient_identifiant(patients, identifiant)
+        pauseConsole()
+        gestion_hopital()
     elif option == 6:
-        aficher_patient(patients)
+        afficher_patient(patients)
         pauseConsole()
         gestion_hopital()
     elif option == 7:
