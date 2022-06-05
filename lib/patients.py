@@ -1,15 +1,32 @@
 from lib.clean import*
 import datetime
 
+def enregistrer_plaintes_patients(patient):
+    print("Entrez votre plainte : ")
+    plainte = input(">> ")
+    patient.append(plainte)
+
 def affichage_identifiants_patients(patient):
-    print(f"\n\
-    Nom : {patient[0]} {patient[1]} {patient[2]}\n\
-    Numero Telephone: {patient[3]}\n\
-    Poids : {patient[4]} Kg\n\
-    Taille: {patient[5]} metres\n\
-    Genre : {patient[6]}\n\
-    Age : {patient[7]} ans\n\
-    Numero Dossier: {patient[8]}\n")
+    if len(patient)<=9 :
+        print(f"\n\
+        Nom : {patient[0]} {patient[1]} {patient[2]}\n\
+        Numero Telephone: {patient[3]}\n\
+        Poids : {patient[4]} Kg\n\
+        Taille: {patient[5]} metres\n\
+        Genre : {patient[6]}\n\
+        Age : {patient[7]} ans\n\
+        Numero Dossier: {patient[8]}\n")
+    else :
+        print(f"\n\
+        Nom : {patient[0]} {patient[1]} {patient[2]}\n\
+        Numero Telephone: {patient[3]}\n\
+        Poids : {patient[4]} Kg\n\
+        Taille: {patient[5]} metres\n\
+        Genre : {patient[6]}\n\
+        Age : {patient[7]} ans\n\
+        Numero Dossier: {patient[8]}\n\
+        Plainte : {patient[9]}\n")
+        
 def choix_identifiants():
     print("Veuillez choisir votre identifiant : \n\
             1. Nom\n\
@@ -41,14 +58,21 @@ def numero_chercher():
     print("Entrez le numero dossier chercher : ")
     num = int(input(">> "))
     return num
-
+def actions_sur_patients(patient, act):
+    if act == 1:
+        affichage_identifiants_patients(patient)
+    elif act == 2:
+        enregistrer_plaintes_patients(patient)
+    elif act == 3:
+        affichage_identifiants_patients(patient)
+    else:
+        return
 def enregistrer_patients():
     cleanConsonle()
     print("#####################################")
     print("##      ENREGISTRER UN PATIENT     ##")
     print("#####################################")
     liste = []
-    
     print("Entrez le prenom du patient")
     prenom = input(">> ")
     prenom = prenom.upper()
@@ -86,7 +110,10 @@ def enregistrer_patients():
     liste.append(numDossier)
     return liste
 
-def  afficher_patient(patients):
+    
+    
+
+def  afficher_patient(patients, act):
     cleanConsonle()
     print("#####################################")
     print("##        LISTE DES PATIENTS       ##")
@@ -94,20 +121,24 @@ def  afficher_patient(patients):
     #verification des docteurs enregistres
     if len(patients) != 0:
         for i in range(len(patients)):
-            affichage_identifiants_patients(patients[i])
+            actions_sur_patients(patients[i], act)
     else:
         print("Pas des patients enregistres pour l'instant !!!\n")
-def chercher_patient_identifiant(patients, identifiant):
+def chercher_patient_identifiant(patients, identifiant, act):
     if len(patients) != 0:
-        for i in range(len(patients)):
-            if identifiant == patients[i][0] or identifiant == patients[i][1] or identifiant == patients[i][2] :
-                affichage_identifiants_patients(patients[i])
-            if identifiant == patients[i][8]:
-                affichage_identifiants_patients(patients[i])
-                
+        if act == 1:
+            for i in range(len(patients)):
+                if identifiant == patients[i][0] or identifiant == patients[i][1] or identifiant == patients[i][2] :
+                    actions_sur_patients(patients[i], act)
+                if identifiant == patients[i][8]:
+                    actions_sur_patients(patients[i], act)
+        elif act ==2 :
+            for i in range(len(patients)):
+                if identifiant[0] == patients[i][0] and identifiant[1] == patients[i][1] and identifiant[2] == patients[i][2] :
+                    actions_sur_patients(patients[i], act)
+        else :
+            for i in range(len(patients)):
+                if identifiant[0] == patients[i][0] and identifiant[1] == patients[i][1] and identifiant[2] == patients[i][2] :
+                    actions_sur_patients(patients[i], act)
     else:
         print("Pas des patients enregistres pour l'instant !!!\n")
-
-
-
-    

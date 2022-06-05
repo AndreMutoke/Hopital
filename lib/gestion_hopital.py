@@ -22,16 +22,16 @@ def gestion_hopital():
         print("Option 3")
     elif option == 4:
         identifiant = choix_identifiants()
-        chercher_patient_identifiant(patients, identifiant)
+        chercher_patient_identifiant(patients, identifiant, 1)
         pauseConsole()
         gestion_hopital()
     elif option == 5:
         identifiant = numero_chercher()
-        chercher_patient_identifiant(patients, identifiant)
+        chercher_patient_identifiant(patients, identifiant, 1)
         pauseConsole()
         gestion_hopital()
     elif option == 6:
-        afficher_patient(patients)
+        afficher_patient(patients, 1)
         pauseConsole()
         gestion_hopital()
     elif option == 7:
@@ -39,13 +39,43 @@ def gestion_hopital():
         pauseConsole()
         gestion_hopital()
     elif option == 8:
-        print("Option 8")
+        ident = []
+        print("Entrez le prenom du patient : ")
+        prenom = input(">> ")
+        prenom = prenom.upper()
+        ident.append(prenom)
+        print("Entrez le nom du patient : ")
+        nom = input(">> ")
+        nom = nom.upper()
+        ident.append(nom)
+        print("Entrez le post-nom du patient : ")
+        post_nom = input(">> ")
+        post_nom = post_nom.upper()
+        ident.append(post_nom)
+        chercher_patient_identifiant(patients, ident, 2)
+        pauseConsole()
+        gestion_hopital()
     elif option == 9:
         print("Option 9")
     elif option == 10:
         print("Option 10")
     elif option == 11:
-        print("Option 11")
+        ident = []
+        print("Entrez le prenom du patient : ")
+        prenom = input(">> ")
+        prenom = prenom.upper()
+        ident.append(prenom)
+        print("Entrez le nom du patient : ")
+        nom = input(">> ")
+        nom = nom.upper()
+        ident.append(nom)
+        print("Entrez le post-nom du patient : ")
+        post_nom = input(">> ")
+        post_nom = post_nom.upper()
+        ident.append(post_nom)
+        chercher_patient_identifiant(patients, ident, 3)
+        pauseConsole()
+        gestion_hopital()
     else:
         print("Option 12")
         
