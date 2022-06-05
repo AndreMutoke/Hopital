@@ -7,7 +7,7 @@ def enregistrer_plaintes_patients(patient):
     patient.append(plainte)
 
 def affichage_identifiants_patients(patient):
-    if len(patient)<=9 :
+    if len(patient)<=10 :
         print(f"\n\
         Nom : {patient[0]} {patient[1]} {patient[2]}\n\
         Numero Telephone: {patient[3]}\n\
@@ -25,7 +25,7 @@ def affichage_identifiants_patients(patient):
         Genre : {patient[6]}\n\
         Age : {patient[7]} ans\n\
         Numero Dossier: {patient[8]}\n\
-        Plainte : {patient[9]}\n")
+        Plainte : {patient[10]}\n")
         
 def choix_identifiants():
     print("Veuillez choisir votre identifiant : \n\
@@ -54,6 +54,22 @@ def choix_identifiants():
         prenom = input(">> ")
         prenom = prenom.upper()
         return prenom
+def affiche_IMC(patient):
+    decision = ""
+    if patient[9]<=18.5 :
+        decision = "MAIGREUR"
+    elif patient[9] >18.5 and patient[9]<=25 :
+        decision = "CORPULANCE NORMAL"
+    elif patient[9]>25 and patient[9]<=30 :
+        decision = "MAIGREUR"
+    elif patient[9]>30 and patient[9]<=35 :
+        decision = "SUPOIDS"
+    elif patient[9]>35 and patient[9]<=40 :
+        decision = "OBESITE SEVERE"
+    else :
+        decision = "OBESITE MORBIDE OU MASSIVE"
+    print(f"Nom : {patient[0]} {patient[1]} {patient[2]}\n\
+                     IMC : {patient[9]} , {decision}\n")
 def numero_chercher():
     print("Entrez le numero dossier chercher : ")
     num = int(input(">> "))
@@ -108,6 +124,8 @@ def enregistrer_patients():
     current_time = datetime.datetime.now()
     numDossier =current_time.year  + current_time.second
     liste.append(numDossier)
+    imc = poids/(taille**2)
+    liste.append(imc)
     return liste
 def  afficher_patient(patients, act):
     cleanConsonle()
@@ -138,3 +156,8 @@ def chercher_patient_identifiant(patients, identifiant, act):
                     actions_sur_patients(patients[i], act)
     else:
         print("Pas des patients enregistres pour l'instant !!!\n")
+
+def afficher_IMC(patients, num):
+    for i in range(len(patients)):
+        if num == patients[i][8]:
+             affiche_IMC(patients[i])

@@ -63,6 +63,29 @@ def afficher_docteur(docteurs):
             Specialite: {docteurs[i][5]}\n")
     else:
         print("Pas des docteurs enregistrer pour l'instant !!!\n")
+def programmer_rdv(docteur) :
+    if len(docteur) <=6 :
+        print("Pas d'horaire pour l'instant !!! ")
+    else:
+        print("Entrez le jour de la semaine : " )
+        opt = -1
+        jour = input(">> ")
+        jour = jour.upper()
+        for i in range(len(jours)):
+            if jour == jours[i]:
+                opt = i
+
+        print("Entrez l'heure :")
+        heure = int(input(">> "))
+        if len(docteur[6][opt-1][heure-1]) == 0:
+            print("Entrez votre nom")
+            nom = input(">> ")
+            nom = nom.upper()
+            msg = "RDV AVEC " + nom
+            docteur[6][opt][heure-1] = msg
+        else :
+            print("Desole, l'heure est occupee ")
+        
 def enregistrer_horaire(docteur):
     cleanConsonle()
     horaire = []
@@ -87,6 +110,25 @@ def afficher_horaire(docteur):
             print(f"{jours[i]} :")
             for j in range(len(heuresTravail)) :
                 print(f"\t{heuresTravail[j]} : {docteur[6][i][j]}")
+def programme_rdv(docteurs):
+    if len(docteurs) != 0:
+        print("Entrez le prenom du docteur")
+        prenom = input(">> ")
+        prenom = prenom.upper()
+        
+        print("Entrez le nom du docteur")
+        nom = input(">> ")
+        nom = nom.upper()
+        
+        print("Entrez le post_nom du docteur")
+        post_nom = input(">> ")
+        post_nom = post_nom.upper()
+
+        for i in range(len(docteurs)):
+            if prenom ==docteurs[i][0] and nom == docteurs[i][1] and post_nom == docteurs[i][2] :
+                programmer_rdv(docteurs[i])
+    else:
+        print("Desole aucun docteur enregistre pour l'instant")
 
 
 

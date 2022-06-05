@@ -1,4 +1,5 @@
 from lib.menu import menu
+import datetime
 from lib.clean import *
 from lib.docteurs import *
 from lib.patients import *
@@ -19,7 +20,12 @@ def gestion_hopital():
         pauseConsole()
         gestion_hopital()
     elif option == 3:
-        print("Option 3")
+        print("CECI EST UN EXEMPLE CAR CETTE FONCTIONNALITE DEPAND DES HEURES")
+        current_time = datetime.datetime.now()
+        numDossier =current_time.year  + current_time.second
+        print(f"Le numero actuel genere est {numDossier}")
+        pauseConsole()
+        gestion_hopital()
     elif option == 4:
         identifiant = choix_identifiants()
         chercher_patient_identifiant(patients, identifiant, 1)
@@ -85,6 +91,8 @@ def gestion_hopital():
         if choix == 1:
             for i in range(len(docteurs)):
                 afficher_horaire(docteurs[i])
+        else :
+            programme_rdv(docteurs)
         pauseConsole()
         gestion_hopital()
     elif option == 11:
@@ -105,6 +113,14 @@ def gestion_hopital():
         pauseConsole()
         gestion_hopital()
     else:
-        print("Option 12")
+        cleanConsonle()
+        print("###################################")
+        print("##        IMC DES PATIENTS       ##")
+        print("###################################")
+        print("Entrez votre ID : ")
+        num = int(input(">> "))
+        afficher_IMC(patients, num)
         
+        pauseConsole()
+        gestion_hopital()
         
